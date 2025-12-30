@@ -1,0 +1,10 @@
+package-lock.json
+package.json
+node_modules/
+cypress/videos/
+cypress/screenshots/
+.DS_Store
+.vscode/
+.env
+.env.local
+.env.*.local
