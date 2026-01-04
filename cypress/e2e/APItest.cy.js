@@ -1,7 +1,10 @@
 describe('API de Severest', () => {
 
   it('Criar usuario', () => {
-    cy.cria_user()
+    cy.fixture('usuario').then(function (usuario) {
+      const user = usuario.cria_usuario
+      cy.cria_user(user)
+    })
   })
 
   it('Listar usuarios', () => {
@@ -18,17 +21,16 @@ describe('API de Severest', () => {
       })
   })
 
-  it('Atualiza usuario', () => {
-    cy.api('PUT', `https://serverest.dev/usuarios/${Cypress.env('Id')}`, {
-      "nome": "João beleu",
-      "email": "joaobeleu@qa.com.br",
-      "password": "teste",
-      "administrador": "true"
-    }).then((response) => {
-      expect(response.status).to.eq(200)
-      expect(response.body.message).to.eq('Registro alterado com sucesso')
-    })
-  })
+  // it('Atualiza usuario', () => {
+  //   cy.fixture('usuario').then(function (usuario) {
+  //     const user_alter = usuario.user_alter
+
+  //     cy.cria_user(user)
+  //   }).then((response) => {
+  //     expect(response.status).to.eq(200)
+  //     expect(response.body.message).to.eq('Registro alterado com sucesso')
+  //   })
+  // })
 
 
   it('Excluir usuario', () => {

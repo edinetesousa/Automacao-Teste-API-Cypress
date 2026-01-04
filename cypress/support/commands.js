@@ -1,9 +1,8 @@
-Cypress.Commands.add('cria_user', () => {
-    cy.api('POST', 'https://serverest.dev/usuarios', {
-        "nome": "João João",
-        "email": "joaojoao@qa.com.br",
-        "password": "teste",
-        "administrador": "true"
+Cypress.Commands.add('cria_user', (user) => {
+    cy.api({
+        method: 'POST',
+        url: 'https://serverest.dev/usuarios',
+        body: user
     }).then((response) => {
         expect(response.status).to.eq(201)
         expect(response.body.message).to.eq('Cadastro realizado com sucesso')

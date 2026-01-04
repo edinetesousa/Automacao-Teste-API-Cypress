@@ -1,0 +1,8 @@
+{
+  "cria_usuario": {
+    "nome": "Davi Lucas",
+    "email": "joaojoao@qa.com.br",
+    "password": "teste",
+    "administrador": "true"
+  }
+}
