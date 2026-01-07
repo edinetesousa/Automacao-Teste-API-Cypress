@@ -4,5 +4,11 @@
     "email": "joaojoao@qa.com.br",
     "password": "teste",
     "administrador": "true"
+  },
+  "atualiza_usuario": {
+    "nome": "Automação Cypress",
+    "email": "joaojoao@qa.com.br",
+    "password": "teste",
+    "administrador": "true"
   }
 }
