@@ -39,6 +39,19 @@ describe('API de Severest', () => {
     })
   })
 
+  it('Realiza login no sistema', () => {
+    cy.fixture('usuario').then(function (usuario) {
+      const email = usuario.cria_usuario.email
+      const senha = usuario.cria_usuario.password
+      cy.login(email, senha)
+
+    }).then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body.message).to.eq('Login realizado com sucesso')
+      Cypress.env('token', response.body.authentication)
+    })
+  })
+
   it('Excluir usuario', () => {
     cy.deletar_user()
       .then((response) => {

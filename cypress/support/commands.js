@@ -29,3 +29,11 @@ Cypress.Commands.add('deletar_user', () => {
         expect(response.status).to.eq(200)
     })
 })
+
+Cypress.Commands.add('login', (email, senha) => {
+    cy.api({
+        method: 'POST',
+        url: 'https://serverest.dev/login',
+        body: { email: email, password: senha }
+    }).then((response) => { return response })
+})
